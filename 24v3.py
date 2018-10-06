@@ -32,7 +32,7 @@ operators = ['*','/','+','-']
 #    print o
 
 solncount = 0
-solnlist = []
+solnlist = set()
 for p in pgroups: # for every combination of parenthesis
     for n in permutations(numbahs):  # and every permutation of numbers
         for c in combinations_with_replacement(operators, 3): # and every combination of operators
@@ -41,11 +41,10 @@ for p in pgroups: # for every combination of parenthesis
                 # Evaluate, but don't give up and cry when you divide by zero
                 try:
                     if eval(s) == ansah:
-                        solnlist.append(s)
-                        solncount += 1
+                        solnlist.add(s)
                 except:
                     pass
 
-print ("There were {0} solutions:".format(solncount))
+print ("There were {0} solutions:".format(len(solnlist)))
 for s in solnlist:
     print (s)
