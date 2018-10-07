@@ -108,6 +108,104 @@ expressions = [
     lambda a,b,c,d: ((a-b)+(c-d)),
     lambda a,b,c,d: ((a-b)-(c-d))]
 
+# only allow certain rules to work, depending on number ordering
+tests = [
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: True,
+    lambda a,b,c,d: c<d,
+    lambda a,b,c,d: True,
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: True,
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: a<b and c<d,
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: True,
+    lambda a,b,c,d: b<c<d,
+    lambda a,b,c,d: True,
+    lambda a,b,c,d: a<b and c<d,
+    lambda a,b,c,d: True,
+    lambda a,b,c,d: c<d,
+    lambda a,b,c,d: a<b<c,
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: b<c,
+    lambda a,b,c,d: a<b<c,
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: a<b and c<d,
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: True,
+    lambda a,b,c,d: b<c,
+    lambda a,b,c,d: c<d,
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: True,
+    lambda a,b,c,d: a<b<c<d,
+    lambda a,b,c,d: a<b<c,
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: True,
+    lambda a,b,c,d: b<c,
+    lambda a,b,c,d: True,
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: c<d,
+    lambda a,b,c,d: True,
+    lambda a,b,c,d: a<b<c,
+    lambda a,b,c,d: a<b and c<d,
+    lambda a,b,c,d: b<c<d,
+    lambda a,b,c,d: a<b and c<d,
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: a<b and c<d and a<c,
+    lambda a,b,c,d: a<b and c<d,
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: c<d,
+    lambda a,b,c,d: a<c,
+    lambda a,b,c,d: a<b and a<c,
+    lambda a,b,c,d: a<b and c<d,
+    lambda a,b,c,d: c<d,
+    lambda a,b,c,d: a<b and c<d,
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: c<d,
+    lambda a,b,c,d: True,
+    lambda a,b,c,d: c<d,
+    lambda a,b,c,d: a<b and c<d,
+    lambda a,b,c,d: a<b and c<d,
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: c<d,
+    lambda a,b,c,d: True,
+    lambda a,b,c,d: ((a/b)/(c/d)),
+    lambda a,b,c,d: ((a/b)+(c/d)),
+    lambda a,b,c,d: c<d,
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: True,
+    lambda a,b,c,d: True,
+    lambda a,b,c,d: True,
+    lambda a,b,c,d: a<b and c<d,
+    lambda a,b,c,d: c<d,
+    lambda a,b,c,d: True,
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: c<d,
+    lambda a,b,c,d: True,
+    lambda a,b,c,d: True,
+    lambda a,b,c,d: True,
+    lambda a,b,c,d: a<b and c<d,
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: c<d,
+    lambda a,b,c,d: True,
+    lambda a,b,c,d: True]
+
+
 formats = [
     "{0}*{1}*{2}*{3}",
     "(({0}*{1})+{2})*{3}",
@@ -204,13 +302,13 @@ formats = [
     "(({0}-{1})+({2}-{3})",
     "(({0}-{1})-({2}-{3})"]    
 
-rules = zip(expressions, formats)
+rules = zip(rules, expressions, formats)
 
 solnlist = set()
-for expr, fmt in rules: # for every unique way of combining four numbahs
+for test, expr, fmt in rules: # for every unique way of combining four numbahs
     for n in permutations(numbahs):  # and every permutation of numbers
         try:
-            if expr(*n) == ansah:
+            if test(*n) and (expr(*n) == ansah):
                 solnlist.add(fmt.format(*n))
         except:
             pass
