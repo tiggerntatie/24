@@ -120,7 +120,7 @@ tests = [
     lambda a,b,c,d: a<b,
     lambda a,b,c,d: a<b,
     lambda a,b,c,d: True,
-    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: a<b<c,
     lambda a,b,c,d: a<b and c<d,
     lambda a,b,c,d: a<b,
     lambda a,b,c,d: a<b,
