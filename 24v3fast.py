@@ -13,7 +13,7 @@ if answer:
     ansah = int(answer)
 
 expressions = [
-    lambda a,b,c,d: ((a*b)*c)*d,
+    lambda a,b,c,d: ((a*b)*c)*d,  # 1
     lambda a,b,c,d: ((a*b)+c)*d,
     lambda a,b,c,d: ((a+b)*c)*d,
     lambda a,b,c,d: ((a*b)-c)*d,
@@ -22,7 +22,7 @@ expressions = [
     lambda a,b,c,d: ((a/b)-c)*d,
     lambda a,b,c,d: ((a+b)+c)*d,
     lambda a,b,c,d: ((a+b)-c)*d,
-    lambda a,b,c,d: ((a-b)-c)*d,
+    lambda a,b,c,d: ((a-b)-c)*d,  # 10
     lambda a,b,c,d: ((a*b)*c)/d,
     lambda a,b,c,d: ((a*b)/c)/d,
     lambda a,b,c,d: ((a*b)+c)/d,
@@ -32,7 +32,7 @@ expressions = [
     lambda a,b,c,d: ((a/b)/c)/d,
     lambda a,b,c,d: ((a/b)+c)/d,
     lambda a,b,c,d: ((a+b)/c)/d,
-    lambda a,b,c,d: ((a/b)-c)/d,
+    lambda a,b,c,d: ((a/b)-c)/d,  #20
     lambda a,b,c,d: ((a-b)/c)/d,
     lambda a,b,c,d: ((a+b)+c)/d,
     lambda a,b,c,d: ((a+b)-c)/d,
@@ -42,7 +42,7 @@ expressions = [
     lambda a,b,c,d: ((a*b)+c)+d,
     lambda a,b,c,d: ((a+b)*c)+d,
     lambda a,b,c,d: ((a-b)*c)+d,
-    lambda a,b,c,d: ((a/b)/c)+d,
+    lambda a,b,c,d: ((a/b)/c)+d,  #30
     lambda a,b,c,d: ((a/b)+c)+d,
     lambda a,b,c,d: ((a+b)/c)+d,
     lambda a,b,c,d: ((a-b)/c)+d,
@@ -52,7 +52,7 @@ expressions = [
     lambda a,b,c,d: ((a*b)+c)-d,
     lambda a,b,c,d: ((a+b)*c)-d,
     lambda a,b,c,d: ((a*b)-c)-d,
-    lambda a,b,c,d: ((a-b)*c)-d,
+    lambda a,b,c,d: ((a-b)*c)-d,  #40
     lambda a,b,c,d: ((a/b)/c)-d,
     lambda a,b,c,d: ((a/b)+c)-d,
     lambda a,b,c,d: ((a+b)/c)-d,
@@ -62,7 +62,7 @@ expressions = [
     lambda a,b,c,d: ((a+b)-c)-d,
     lambda a,b,c,d: ((a-b)-c)-d,
     lambda a,b,c,d: ((a*b)/(c*d)),
-    lambda a,b,c,d: ((a*b)*(c/d)),
+    lambda a,b,c,d: ((a*b)*(c/d)),  #50
     lambda a,b,c,d: ((a*b)+(c*d)),
     lambda a,b,c,d: ((a*b)-(c*d)),
     lambda a,b,c,d: ((a*b)/(c/d)),
@@ -72,7 +72,7 @@ expressions = [
     lambda a,b,c,d: ((a*b)/(c+d)),
     lambda a,b,c,d: ((a/b)*(c+d)),
     lambda a,b,c,d: ((a+b)/(c*d)),
-    lambda a,b,c,d: ((a*b)-(c/d)),
+    lambda a,b,c,d: ((a*b)-(c/d)),  #60
     lambda a,b,c,d: ((a*b)/(c-d)),
     lambda a,b,c,d: ((a/b)-(c*d)),
     lambda a,b,c,d: ((a/b)*(c-d)),
@@ -81,7 +81,7 @@ expressions = [
     lambda a,b,c,d: ((a*b)-(c+d)),
     lambda a,b,c,d: ((a*b)+(c-d)),
     lambda a,b,c,d: ((a+b)-(c*d)),
-    lambda a,b,c,d: ((a+b)*(c-d)),
+    lambda a,b,c,d: ((a+b)*(c-d)),  #70
     lambda a,b,c,d: ((a*b)-(c-d)),
     lambda a,b,c,d: ((a-b)-(c*d)),
     lambda a,b,c,d: ((a-b)*(c-d)),
@@ -91,7 +91,7 @@ expressions = [
     lambda a,b,c,d: ((a+b)/(c/d)),
     lambda a,b,c,d: ((a/b)-(c/d)),
     lambda a,b,c,d: ((a/b)/(c-d)),
-    lambda a,b,c,d: ((a-b)/(c/d)),
+    lambda a,b,c,d: ((a-b)/(c/d)),  #80
     lambda a,b,c,d: ((a+b)/(c+d)),
     lambda a,b,c,d: ((a/b)-(c+d)),
     lambda a,b,c,d: ((a/b)+(c-d)),
@@ -101,7 +101,7 @@ expressions = [
     lambda a,b,c,d: ((a/b)-(c-d)),
     lambda a,b,c,d: ((a-b)-(c/d)),
     lambda a,b,c,d: ((a-b)/(c-d)),
-    lambda a,b,c,d: ((a+b)-(c+d)),
+    lambda a,b,c,d: ((a+b)-(c+d)),  #90
     lambda a,b,c,d: ((a+b)+(c-d)),
     lambda a,b,c,d: ((a+b)-(c-d)),
     lambda a,b,c,d: ((a-b)-(c+d)),
@@ -110,7 +110,7 @@ expressions = [
 
 # only allow certain rules to work, depending on number ordering
 tests = [
-    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: a<b,  #1
     lambda a,b,c,d: a<b,
     lambda a,b,c,d: a<b,
     lambda a,b,c,d: a<b,
@@ -119,7 +119,7 @@ tests = [
     lambda a,b,c,d: True,
     lambda a,b,c,d: a<b,
     lambda a,b,c,d: a<b,
-    lambda a,b,c,d: True,
+    lambda a,b,c,d: True,  #10
     lambda a,b,c,d: a<b<c,
     lambda a,b,c,d: a<b and c<d,
     lambda a,b,c,d: a<b,
@@ -129,7 +129,7 @@ tests = [
     lambda a,b,c,d: b<c<d,
     lambda a,b,c,d: True,
     lambda a,b,c,d: a<b and c<d,
-    lambda a,b,c,d: True,
+    lambda a,b,c,d: True,  #20
     lambda a,b,c,d: c<d,
     lambda a,b,c,d: a<b<c,
     lambda a,b,c,d: a<b,
@@ -139,7 +139,7 @@ tests = [
     lambda a,b,c,d: a<b and c<d,
     lambda a,b,c,d: a<b,
     lambda a,b,c,d: True,
-    lambda a,b,c,d: b<c,
+    lambda a,b,c,d: b<c,  #30
     lambda a,b,c,d: c<d,
     lambda a,b,c,d: a<b,
     lambda a,b,c,d: True,
@@ -148,8 +148,8 @@ tests = [
     lambda a,b,c,d: a<b,
     lambda a,b,c,d: a<b,
     lambda a,b,c,d: a<b,
-    lambda a,b,c,d: a<b,
-    lambda a,b,c,d: True,
+    lambda a,b,c,d: a<b and c<d,
+    lambda a,b,c,d: True,  #40
     lambda a,b,c,d: b<c,
     lambda a,b,c,d: True,
     lambda a,b,c,d: a<b,
@@ -159,7 +159,7 @@ tests = [
     lambda a,b,c,d: a<b and c<d,
     lambda a,b,c,d: b<c<d,
     lambda a,b,c,d: a<b and c<d,
-    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: a<b,  #50
     lambda a,b,c,d: a<b and c<d and a<c,
     lambda a,b,c,d: a<b and c<d,
     lambda a,b,c,d: a<b,
@@ -169,7 +169,7 @@ tests = [
     lambda a,b,c,d: a<b and c<d,
     lambda a,b,c,d: c<d,
     lambda a,b,c,d: a<b and c<d,
-    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: a<b,  #60
     lambda a,b,c,d: a<b,
     lambda a,b,c,d: c<d,
     lambda a,b,c,d: True,
@@ -179,7 +179,7 @@ tests = [
     lambda a,b,c,d: a<b,
     lambda a,b,c,d: a<b,
     lambda a,b,c,d: a<b,
-    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: a<b,  #70
     lambda a,b,c,d: c<d,
     lambda a,b,c,d: True,
     lambda a,b,c,d: ((a/b)/(c/d)),
@@ -189,7 +189,7 @@ tests = [
     lambda a,b,c,d: True,
     lambda a,b,c,d: True,
     lambda a,b,c,d: True,
-    lambda a,b,c,d: a<b and c<d,
+    lambda a,b,c,d: a<b and c<d,  #80
     lambda a,b,c,d: c<d,
     lambda a,b,c,d: True,
     lambda a,b,c,d: a<b,
@@ -199,7 +199,7 @@ tests = [
     lambda a,b,c,d: True,
     lambda a,b,c,d: True,
     lambda a,b,c,d: a<b and c<d,
-    lambda a,b,c,d: a<b,
+    lambda a,b,c,d: a<b,  #90
     lambda a,b,c,d: a<b,
     lambda a,b,c,d: c<d,
     lambda a,b,c,d: True,
