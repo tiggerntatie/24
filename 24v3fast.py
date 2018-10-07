@@ -302,7 +302,7 @@ formats = [
     "(({0}-{1})+({2}-{3})",
     "(({0}-{1})-({2}-{3})"]    
 
-rules = zip(rules, expressions, formats)
+rules = zip(tests, expressions, formats)
 
 solnlist = set()
 for test, expr, fmt in rules: # for every unique way of combining four numbahs
