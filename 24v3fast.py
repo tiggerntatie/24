@@ -313,6 +313,6 @@ for test, expr, fmt in rules: # for every unique way of combining four numbahs
         except:
             pass
 
-print ("There were {0} solutions:".format(len(solnlist)))
+print ("There are {0} solutions:".format(len(solnlist)))
 for s in solnlist:
     print (s)
